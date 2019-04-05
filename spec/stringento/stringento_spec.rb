@@ -10,6 +10,7 @@
 require 'spec_helper'
 require './spec/examples/custom_formatter'
 require './spec/examples/indifferent_hash_resolver'
+require './spec/examples/nested_hash_resolver'
 
 describe ::Stringento do
   context 'without custom formatter and resolver' do
@@ -135,14 +136,6 @@ describe ::Stringento do
     end
 
     specify 'Custom Resolution example works' do
-      class NestedHashResolver
-        def resolve(value, input)
-          parts = value.to_s.split('.').map(&:to_sym)
-
-          input ? input.dig(*parts) : nil
-        end
-      end
-
       example = 'The {fox.speed} brown fox jumps over the {dog.speed} dog'
       input = { fox: { speed: 'quick' }, dog: { speed: 'lazy' } }
 
@@ -152,26 +145,6 @@ describe ::Stringento do
     end
 
     specify 'Custom Formatting example works' do
-      class CustomFormatter < ::Stringento::Formatter
-        def yes_no_unknown_formatter(value, _arg)
-          if value.nil?
-            'Unknown'
-          elsif value
-            'Yes'
-          else
-            'No'
-          end
-        end
-      end
-
-      class NestedHashResolver
-        def resolve(value, input)
-          parts = value.to_s.split('.').map(&:to_sym)
-
-          input ? input.dig(*parts) : nil
-        end
-      end
-
       example = 'The fox is quick: {fox.quick::yes_no_unknown}'
       input = { fox: { quick: true } }
 
