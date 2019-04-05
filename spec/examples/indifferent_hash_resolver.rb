@@ -7,6 +7,8 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-module Stringento
-  VERSION = '1.0.0'
+class IndifferentHashResolver
+  def resolve(value = '', input = {})
+    input ? (input[value.to_s] || input[value.to_s.to_sym]) : nil
+  end
 end
