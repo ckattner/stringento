@@ -31,9 +31,9 @@ module Stringento
       placeholders.inject(value) do |output, placeholder|
         resolved_value = (resolver || default_resolver).resolve(placeholder.name, input)
 
-        formatted_value = (formatter || default_formatter).format(
-          resolved_value,
+        formatted_value = (formatter || default_formatter).formatter(
           placeholder.formatter,
+          resolved_value,
           placeholder.arg
         )
 

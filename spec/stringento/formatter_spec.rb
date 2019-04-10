@@ -11,11 +11,11 @@ require 'spec_helper'
 require './spec/examples/custom_formatter'
 
 describe ::Stringento::Formatter do
-  describe 'when not specifying a formatter' do
+  describe 'when not specifying a method' do
     it 'should return value as a string' do
-      value = 'some value'
-
-      actual = described_class.new.format(value)
+      method = ''
+      value  = 'some value'
+      actual = described_class.new.formatter(method, value)
 
       expect(actual).to eq(value)
     end
@@ -23,9 +23,9 @@ describe ::Stringento::Formatter do
 
   describe 'when specifying a formatter that does not exist' do
     it 'should return value as a string' do
-      value = 'some value'
-
-      actual = described_class.new.format(value, 'doesnt_exist')
+      method = 'doesnt_exist'
+      value  = 'some value'
+      actual = described_class.new.formatter(method, value)
 
       expect(actual).to eq(value)
     end
@@ -36,27 +36,27 @@ describe ::Stringento::Formatter do
       formatter = CustomFormatter.new
       method    = 'yes_no'
 
-      expect(formatter.format(true, method)).to eq('Yes')
-      expect(formatter.format('true', method)).to eq('Yes')
-      expect(formatter.format('', method)).to eq('Yes')
-      expect(formatter.format('false', method)).to eq('Yes')
+      expect(formatter.formatter(method, true)).to    eq('Yes')
+      expect(formatter.formatter(method, 'true')).to  eq('Yes')
+      expect(formatter.formatter(method, '')).to      eq('Yes')
+      expect(formatter.formatter(method, 'false')).to eq('Yes')
 
-      expect(formatter.format(false, method)).to eq('No')
-      expect(formatter.format(nil, method)).to eq('No')
+      expect(formatter.formatter(method, false)).to   eq('No')
+      expect(formatter.formatter(method, nil)).to     eq('No')
     end
   end
 
   it 'yes_no_unknown formatter should be called' do
     formatter = CustomFormatter.new
-    method    = 'yes_no_unknown'
+    method = 'yes_no_unknown'
 
-    expect(formatter.format(true, method)).to eq('Yes')
-    expect(formatter.format('true', method)).to eq('Yes')
-    expect(formatter.format('', method)).to eq('Yes')
-    expect(formatter.format('false', method)).to eq('Yes')
+    expect(formatter.formatter(method, true)).to    eq('Yes')
+    expect(formatter.formatter(method, 'true')).to  eq('Yes')
+    expect(formatter.formatter(method, '')).to      eq('Yes')
+    expect(formatter.formatter(method, 'false')).to eq('Yes')
 
-    expect(formatter.format(false, method)).to eq('No')
+    expect(formatter.formatter(method, false)).to   eq('No')
 
-    expect(formatter.format(nil, method)).to eq('Unknown')
+    expect(formatter.formatter(method, nil)).to     eq('Unknown')
   end
 end

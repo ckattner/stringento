@@ -18,8 +18,8 @@ module Stringento
 
     private_constant :METHOD_SUFFIX
 
-    def format(value, formatter = '', arg = '')
-      method_name = "#{formatter}#{METHOD_SUFFIX}"
+    def formatter(method, value, arg = '')
+      method_name = "#{method}#{METHOD_SUFFIX}"
 
       if respond_to?(method_name)
         send(method_name, value, arg)
