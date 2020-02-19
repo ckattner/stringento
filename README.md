@@ -102,7 +102,7 @@ end
 example = 'The fox is quick: {fox.quick::yes_no_unknown}'
 input = { fox: { quick: true } }
 
-result = evaluate(example, input, resolver: NestedHashResolver.new, formatter: CustomFormatter.new)
+result = Stringento.evaluate(example, input, resolver: NestedHashResolver.new, formatter: CustomFormatter.new)
 ```
 
 The ```result``` variable should now be: 'The fox is quick: Yes'
