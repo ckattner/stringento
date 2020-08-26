@@ -11,7 +11,7 @@ require 'spec_helper'
 require './spec/examples/custom_formatter'
 require './spec/examples/indifferent_hash_resolver'
 
-describe ::Stringento::Template do
+describe Stringento::Template do
   describe '#placeholders' do
     let(:tests) do
       [

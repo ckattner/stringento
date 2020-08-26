@@ -1,3 +1,15 @@
+# 2.1.0 (August 22nd, 2020)
+
+Changes:
+
+* Removed support for < Ruby 2.5
+
+Development:
+
+* Updated dependencies
+* Removed Gemfile.lock
+* Installed Rake / Publish Steps
+
 # 2.0.0 (April 7th, 2019)
 
 *Breaking change in the formatter signature*

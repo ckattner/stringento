@@ -12,7 +12,7 @@ require './spec/examples/custom_formatter'
 require './spec/examples/indifferent_hash_resolver'
 require './spec/examples/nested_hash_resolver'
 
-describe ::Stringento do
+describe Stringento do
   context 'without custom formatter and resolver' do
     describe '#evaluate' do
       let(:tests) do

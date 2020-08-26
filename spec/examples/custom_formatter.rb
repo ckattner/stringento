@@ -7,7 +7,7 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-class CustomFormatter < ::Stringento::Formatter
+class CustomFormatter < Stringento::Formatter
   def yes_no_formatter(value, _arg)
     value ? 'Yes' : 'No'
   end

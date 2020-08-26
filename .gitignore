@@ -2,3 +2,5 @@
 *.gem
 /tmp
 /coverage
+Gemfile.lock
+/pkg

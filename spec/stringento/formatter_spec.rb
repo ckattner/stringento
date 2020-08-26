@@ -10,7 +10,7 @@
 require 'spec_helper'
 require './spec/examples/custom_formatter'
 
-describe ::Stringento::Formatter do
+describe Stringento::Formatter do
   describe 'when not specifying a method' do
     it 'should return value as a string' do
       method = ''

@@ -9,7 +9,7 @@
 
 require 'spec_helper'
 
-describe ::Stringento::Placeholder do
+describe Stringento::Placeholder do
   let(:tests) do
     [
       [

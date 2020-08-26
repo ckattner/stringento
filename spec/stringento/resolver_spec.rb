@@ -18,7 +18,7 @@ class Person
   end
 end
 
-describe ::Stringento::Resolver do
+describe Stringento::Resolver do
   context 'input is hash' do
     let(:input) do
       {

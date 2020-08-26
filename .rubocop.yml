@@ -1,3 +1,7 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  NewCops: enable
+
 Metrics/LineLength:
   Max: 100
 
@@ -6,6 +10,3 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Max: 25
-
-AllCops:
-  TargetRubyVersion: 2.3
